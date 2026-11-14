@@ -1,0 +1,69 @@
+:root {
+  --bg: #0b0b0c;
+  --panel: #141416;
+  --line: #2a2a2e;
+  --text: #c9c9cf;
+  --dim: #6d6d75;
+  --red: #b3122b;
+  --link: #8fa3c9;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+
+body { font: 15px/1.6 Georgia, "Noto Serif Thai", serif; }
+
+a { color: var(--link); }
+a:hover, a:focus { color: #c2d0ee; }
+
+header.top {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  font: 13px/1.4 "Courier New", monospace;
+  color: var(--dim);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+main { max-width: 780px; margin: 0 auto; padding: 16px; }
+
+h1 { font-size: 20px; font-weight: normal; margin: 8px 0 20px; }
+h2 { font-size: 16px; font-weight: normal; color: var(--dim); margin: 24px 0 8px; }
+
+.post, .row {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 16px; }
+.row .n { font: 12px monospace; color: var(--dim); white-space: nowrap; }
+
+.meta { font: 12px monospace; color: var(--dim); margin-bottom: 8px; }
+.gone { color: var(--dim); font-style: italic; }
+.last { border-color: var(--red); animation: flick 4s infinite; }
+.last .meta { color: var(--red); }
+.w { color: var(--panel); }
+.w::selection { color: #fff; background: var(--red); }
+
+@keyframes flick { 0%, 96% { opacity: 1; } 97% { opacity: .25; } 100% { opacity: 1; } }
+
+.video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line); }
+.video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.empty { color: var(--dim); font-style: italic; }
+
+footer { max-width: 780px; margin: 32px auto; padding: 0 16px; font: 12px monospace; color: var(--dim); }
+
+@media (max-width: 520px) {
+  body { font-size: 14px; }
+  .row { flex-direction: column; gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .last { animation: none; }
+}

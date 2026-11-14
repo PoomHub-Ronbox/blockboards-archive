@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /nine/
+# it can't read this folder. you can.
